@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -14,14 +14,16 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    varified: {
-        type: Boolean,
-        default: false
-    },
     status: {
-        type: Boolean,
-        default: false
+        type: Bollean,
+        default: false // false = no eliminado, true = eliminado
+    },
+    token:{
+        type: String // Recuperar contraseña
     }
+}, {
+    timestamps: true, // Guarda fecha de creacion y actualizacion
+    versionKey: false // Desactiva versionKey
 });
 
-module.exports = model('User', UserSchema);
+module.exports = model('User', userSchema);
