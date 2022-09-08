@@ -15,7 +15,7 @@ const userSchema = new Schema({
         required: true
     },
     status: {
-        type: Bollean,
+        type: Boolean,
         default: false // false = no eliminado, true = eliminado
     },
     token:{
