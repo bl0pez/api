@@ -1,3 +1,4 @@
+const welcomeEmail = require("../email/welcome");
 const User = require("../models/User");
 
 const register  = (req, res) => {
@@ -8,6 +9,7 @@ const register  = (req, res) => {
 
     user.save()
         .then(user => {
+            welcomeEmail(user);
             res.json({
                 message: "Usuario creado correctamente",
                 user
